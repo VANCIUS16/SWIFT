@@ -1,0 +1,761 @@
+/*=======================================================*/
+/*Author: Marc Nadal Parra ==============================*/
+/*Date: 29 De Marzo, 2021 ===============================*/
+/*Description: Temario con ejemplos del Certificado =====*/
+/*de desarrollo de aplicaciones Móviles en IOS     =====*/
+/*=======================================================*/
+
+Tema 3
+{
+	3.2 Asignación de valor y asociación de tipo
+	{
+		//Declarativo
+		var dato1:String = String()
+
+		//Inferencia
+		var dato1 = 3
+		var dato3 = "abc"
+
+		//Ejemplos
+		var numero = 3
+		let otro_num:Int = 4
+		var texto = "Hola Mundo"
+		let otro_text:String = "Programador"
+		var decimal = 5.1
+		let otr_deci = 6.1
+		var verdad = true
+		let falso:Bool = false
+
+		otro_num = 5
+
+		/*=======================================================*/
+		/*=======================================================*/
+
+		//TUPLE
+		//Tuple (T, T ..., T)
+		var punto1(3, 3)
+		print("El punto1 es \(punto1)")
+		var punto2(x:3, y:3)
+		print("El punto2 es \(punto2.x)")
+
+		//Declaración
+		var coordenadas = (4, 5)				// (.0 4, .1 5)
+		var tipo_error = ("Not Found", 404) 	// (.0 "Not Found", .1 404)
+
+		//Extracción del valor
+		coordenadas.0 or 1
+	}
+
+	3.3 Colecciónes: Arreglos y Diccionarios
+	{
+		//Array
+		var numeros:Array<Int> = Array<Int>()
+		numeros.append(3)
+		numeros.append(4)
+		numeros.count
+
+		/*=======================================================*/
+		/*=======================================================*/
+
+		//Dictionary
+		var directorio:Dictionary<String, Int> = Dictionary<String, Int>()
+		directorio = ["PUE": 3]
+		directorio["MTY"] = 2
+		print("Diccionario: \(directorio)")		//Diccionario: ["MTY": 2, "PUE": 3]
+
+		//Declaración
+		var arreglo = [1, 2]
+		var diccionario = ["PUE":1, "MTY":2]
+
+		//Agregar valor
+		arreglo.append(3)
+		diccionario["GDL"] = 3
+
+		//Extracción del valor
+		arreglo[0]
+		diccionario["PUE"]
+	}
+}
+
+Tema 4
+{
+	4.1 Condiciones y Ciclos
+	{
+		//Condicional
+		if condicion{
+			sentencia A
+		}else{
+			sentencia B
+		}
+		//Casos
+		switch condicion{
+			case valido:
+			sentencia A
+			default:
+			sentencia B
+		}
+
+		/*=======================================================*/
+		/*=======================================================*/
+
+		//Condicionales
+		var dia = false
+
+		if dia{
+			print("Es de Día")
+		}else{
+			print("Es de Noche")
+		}
+
+		var n = 3
+		switch n
+		{
+			case 1:
+			print("n es 1")
+			case 2:
+			print("n es 2")
+			case 3:
+			print("n es 3")
+			default:
+			print("Es mayor a 3")
+		}
+
+		/*=======================================================*/
+		/*=======================================================*/
+
+		//Ciclo for
+		for variable in contenedor{
+			sentencias
+		}
+
+		for inicializador, comparación, incremento{
+			sentencias
+		}
+
+		/*=======================================================*/
+		/*=======================================================*/
+
+		//Ciclo While
+		while condicion
+		{
+			sentencia
+		}
+
+		//Ciclo Repeat
+		repeat{
+			sentencia
+		}while condicion
+
+		/*=======================================================*/
+		/*=======================================================*/
+
+		var x = 0
+
+		//realiza el cliclo al menos una vez
+		repeat
+		{
+			x++
+		}while x < 4
+
+		//Si no cumple la sentencia, no entra en el ciclo
+		while x < 6
+		{
+			x++
+		}
+		for var y = x; y < 10; y ++
+		{
+			y
+		}
+	}
+
+	4.2 Funciones
+	{
+		func NombreFunc (parametro:Tipo)-> Tipo
+		{
+			return valor
+		}
+
+		/*=======================================================*/
+		/*=======================================================*/
+
+		//Declaración de la función
+		func suma(a:Int, b:Int) ->Int
+		{
+			return a + b
+		}
+
+		func saludo(mensaje:String) ->String
+		{
+			return "Hola \(mensaje"
+		}
+
+		suma(3, b:2)	//5
+		saludo("Mundo")	//Hola Mundo
+	}
+
+	4.3 Enumeraciones
+	{
+		//Enumeraciones
+		enum nombre
+		{
+			case tipo
+			func_{}
+		}
+
+		/*=======================================================*/
+		/*=======================================================*/
+
+		//Declaración de Enumeración
+		enum FinSemana
+		{
+			case Sabado
+			case Domingo
+		}
+		var value:FinSemana
+		value = .Domingo or .Sabado
+
+		switch value{
+			case .Sabado:
+				print("Es Sabado")		// Es Sabado
+			case .Domingo:
+				print("Es Domingo")		// Es Domingo
+		}
+	}
+}
+
+Tema 5
+{
+	5.1 Clases y Estructuras
+	{
+		//Clases(Reference Type)
+		calss nombre
+		{
+			var tipo
+			init(nombre:tipo)
+			{
+				self.propiedad = nombre
+			}
+
+			func_(){}
+		}
+
+		/*=======================================================*/
+		/*=======================================================*/
+
+		//Declaración de clases
+		class Humano
+		{
+			var estructura:Float, saludo = ""
+			var edad:Int, camino = 0
+
+			init(estatura:Float, edad:Int)
+			{
+				self.estatura = estatura
+				self.edad = edad
+			}
+
+			func Caminar(pasos:Int)
+			{
+				self.camino = pasos
+			}
+
+			func Hablar(mensaje:String)
+			{
+				self.saludo = mensaje
+			}
+
+			//Instanciar e inicializar
+			var carlos = Humano(estatura: 1.8, edad: 38)
+			carlos.Caminar(pasos: 20)
+			carlos.Hablar(mensaje: "Hola Mundo")
+
+			//Aplicar clase
+			print("Estatura: \(carlos.estatura) y su edad: \(carlos.edad)") 	// Estatura: 1.8 y su edad: 38
+			print("Camino: \(carlos.camino) pasos")								// Camino 20 pasos
+		}
+
+		/*=======================================================*/
+		/*=======================================================*/
+
+		// Estructuras(value type)
+		struct nombre
+		{
+			var tipo
+
+			init(nombre:tipo)
+			{
+				self.propiedad = nombre
+			}
+
+			func_(){}
+		}
+
+		/*=======================================================*/
+		/*=======================================================*/
+
+		//Declaración del struct
+		struct Video
+		{
+			var alto:Int
+			var ancho:Int
+
+			init(alto:Int, ancho:Int)
+			{
+				self.alto = alto
+				self.ancho = ancho
+			}
+
+			func QueResolucion() -> (Int, Int)
+			{
+				return (self.alto, self.ancho)
+			}
+		}
+
+		//Instanciar e instalar
+		var hd = Video(alto:1024, ancho:768)
+		var vga = Video(alto:480, ancho:640)
+
+		hq.QueResolucion()		// (.0 1024, .1 768)
+		vga.QueResolucion()		// (.0 480, .1 640)
+
+		//Diferencia class y struct
+		var alberto = carlos
+		alberto,.edad				// 38
+		carlos.edad
+							// 38
+		//Cambio
+		alberto.edad 0 20
+
+		//Validación: AMBOS CAMBIAN
+		alberto.edad				// 20
+		carlos.edad					// 20
+
+		var fullhd = hd
+		fullhd.QueResolucion()
+		hd.QueResolucion()
+
+		//Cambio
+		fullhd.alto = 1024
+		fullhd.ancho = 1080
+
+		//Validación: UNO CAMBIA
+		fullhd.QueResolucion()		//(.0 1024, .1 1080)
+		hq.QueResolucion()			//(.0 1024, .1 768)
+	}
+
+	5.2 Extenciones
+	{
+		//Extenciones
+		extension tipo
+		{
+			var _:tipo{}
+			return valor
+		}
+		func_{}
+
+		/*=======================================================*/
+		/*=======================================================*/
+
+		//declaración extension
+		extension Int
+		{
+			var dias:Int
+			{
+				return self*12*30
+			}
+			func horas()-> Int
+			{
+				return self*24*60
+			}
+		}
+
+		//Años a Días
+		3.dias 			// 1080
+
+		//Horas a Segundos
+		3.horas 		// 4320
+	}
+
+	5.3 Opcionales
+	{
+		// Optional
+		enum Optional<T>
+		{
+			case None
+			case Some(T)
+		}
+
+		/*=======================================================*/
+		/*=======================================================*/
+				
+		//Optional
+		var ciudad = ["PUE":3, "MTY":1, "GDL":2]
+		var existe:Int?
+
+		//Aplicación
+		existe = ciudad["DF"]		// Null
+		existe = ciudad["PUE"]		// 3
+
+		//Puente
+		if let temp = ciudad["DF"] 	// No Existe
+		{
+			print("Si Existe")
+		}else
+		{
+			print("No Existe")
+		}
+	}
+}
+
+Tema 6
+{
+	6.1 Operadores Personalizados
+	{
+		//Operador un-valor
+		prefix  operador "operador"{}
+		postfix operador "operador"{}
+
+		//Operador entre-valores
+		infix operador "operador"{}
+		infix operador "operador"{assocaitivity left}
+
+		/*=======================================================*/
+		/*=======================================================*/
+
+		//Antes de valor
+		prefix operador +++
+
+		prefix func +++(valor:Int)-> Int
+		{
+			let v = valor + valor
+			return v
+		}
+
+		+++5	// 10
+		+++2	// 4
+
+		/*=======================================================*/
+		/*=======================================================*/
+
+		//Entre Valores
+		infix operador |>
+
+		func(a:Int, f:(Int)->Int) -> Int
+		{
+			return f(a)
+		}
+		func suma2(dato: Int)-> Int
+		{
+			return dato + 2
+		}
+
+		5|>suma2 	// 7
+		3|>suma2 	// 5
+	}
+
+	6.2 Subscript
+	{
+		//Subscript
+		subscript(param: tipo)-> tipo
+		{
+			get{}
+			set(newValue){}
+		}
+
+		/*=======================================================*/
+		/*=======================================================*/
+
+		//Subscript
+		let cantidades = [2,4,9,2,5]
+
+		class Cantidad
+		{
+			var valores:[Int]
+			init(v:[Int])
+			{
+				self.valores = v
+			}
+
+			subscript(idx:Int)-> Int
+			{
+				get
+				{
+					return valores[idx]
+				}
+
+				selt(nuevoValor)
+				{
+					valores[idx] = nuevoValor
+				}
+			}
+		}
+
+		let v1 = cantidad(v: cantidades)
+
+		v1[2]		// 9
+		v1[3] = 7	// 7
+		cantidades	// [2,4,9,2,5]
+		v1.valores	// [2,4,9,7,5]
+	}
+
+	6.3 Control De Errores
+	{
+		//Control de Error
+		func Nombre()
+		{
+			guard condicion else
+			{
+				aentencia error
+				return
+			}
+			sentencia sin error
+		}
+
+		/*=======================================================*/
+		/*=======================================================*/
+
+		//Control de Errores
+		let dictError = [1:"Uno", 2:"Dos", 3:"Tres"]
+
+		func let existe = dictError[idx] else
+		{
+			print("No Existe")
+			return
+		}
+		print("Existe \(existe")
+
+		Existe(idx: 5)
+		dictError[5]	// No Existe
+
+		Existe(idx: 1)
+		dictError[1]	// Existe 1
+
+		/*=======================================================*/
+		/*=======================================================*/
+
+		//Declaración de Error
+		func Nombre(param:Tipo) throws->Tipo
+		{
+			guard condicion else
+			{
+				throw TipoError
+			}
+
+			//Flujo sin Error
+		}
+
+		/*=======================================================*/
+		/*=======================================================*/
+
+		//Do-Catch
+		do
+		{
+			try expresion
+			sentencia
+		}catch TipoError
+		{
+			sentencia Error
+		}
+
+		/*=======================================================*/
+		/*=======================================================*/
+
+		//Declaración del Error
+		enum TipoError:Error
+		{
+			case NoExiste
+			case EnteroInvalido(Int)
+		}
+
+		func BuscaError(idx:Int) throws->String
+		{
+			guard dictError[idx] != nil else
+			{
+				throw TipoError.NoExiste
+			}
+			return dictError[idx]!				// dos
+		}
+
+		do
+		{
+			try BuscaError(idx:2)				// dos
+		}
+		catch TipoError.NoExiste
+		{
+			print("No Existe")					// No Existen
+		}
+	}
+}
+
+Tema 7
+{
+	7.1 Valor Por Tipo Y Por Referencia
+	{
+		//Programación Funcional
+		func PorValor(param:Tipo)->Tipo
+		{
+			return Tipo
+		}
+
+		var PorValor:Tipo = {a:Tipo in return Tipo}
+
+		/*=======================================================*/
+		/*=======================================================*/
+
+		//Programación Funcional
+		var numeros = [5,4,3,2,1]
+		var indice:Int = 0
+
+		for i in numeros
+		{
+			numeros[indice] = i*2
+			indice
+		}
+		numeros
+
+		func PorDos(arreglo:[Int]) -> [Int]
+		{
+			var resultado:[Int] = []
+			for i in arreglo
+			{
+				resultado.append(i*2)
+			}
+			return resultado
+		}
+
+		PorDos(arreglo: numeros)
+		numeros	
+	
+		/*=======================================================*/
+		/*=======================================================*/
+
+		//Closure
+		{(parametro)->Tipo a regresar in sentencia}
+
+		{(a:Tipo)->Tipo in return Operación}
+
+		/*=======================================================*/
+		/*=======================================================*/		
+	
+		//Closure
+		let Suma = {(x:Int, y:Int) -> Int in return x + y}
+		Suma(2, 2)
+
+		func SumaTres(a:Int, b:Int, c:Int) -> Int
+		{
+			return Suma(a, b) + c
+		}
+
+		SumaTres(a:2, b:2, c:2)
+	}
+
+	7.2 Funciones Personalizadas Y Generics 
+	{
+		//Generics
+		func CambioInt(a:Int, b:Int)->(Int,Int)
+		{
+			var temp = a
+			a = b
+			b = temp
+
+			return(a, b)
+		}
+
+		func CambioString(a:String, b:String)->(String, String)
+		{
+			var temp = a
+			a = b
+			b = temp
+
+			return(a, b)
+		}
+		/*=======================================================*/
+		/*=======================================================*/
+
+		//Generics
+		func PorValor<Tipo>(param:Tipo)->Tipo
+		{
+			return Tipo
+		}
+
+		func PorValor<T>(param:T)->Tipo
+		{
+			var temp:T
+
+			return temp
+		}
+
+		/*=======================================================*/
+		/*=======================================================*/
+
+		//Mi Funcion Personalizada
+		extension Array
+		{
+			func SAcumulada<T> (inicial:T, acumula:(T, Element)->T)->T
+			{
+				var respuesta:T = inicial
+				for valor in self										// 2 times
+				{
+					respuesta = acumula(respuesta, valor)				// 10 times
+				}
+				return respuesta										// 2 times
+			}
+		}
+
+		var datos = [1,2,3,4,5]											// [1,2,3,4,5]
+		var letras = ["a","e","i","o","u"]								// ["a","e","i","o","u"]
+
+		datos.SAcumulada(inicial: 0) {(a, b) in a + b}					// 6 times
+		letras.SAcumulada(inicial: "") {(a, b) in a + b}				// 6 times
+	}
+
+	7.3 Funciones De La Biblioteca SWIFT
+	{
+		//Biblioteca de SWIFT
+		map		{Element->[U]}
+		filter 	{Element->[Bool]}
+		reduce 	{Element->[U]}
+		soft   	{Element->[U]}
+
+		/*=======================================================*/
+		/*=======================================================*/
+
+		//Biblioteca de SWIFT
+		let datos 2 = [3,4,5,6,1,0]										// [3,4,5,6,1,0]
+
+		//Sumar cada elemento por 2
+		var sumarle2 = datos2.map{a in return a + 2}					// 7 Times
+		sumarle2														// [5,6,7,8,3,2]
+
+		//Los elementos mayores a 3
+		var filtro = datos2.filter{a in a > 3}							// 7 Times
+		filtro 															// [4,5,6]
+
+		//Suma acumulada
+		var acumulado = datos2.reduce(0){(a, b) in a + b}				// 7 Times
+		acumulado 														// 19
+
+		//Ordenado de mayor a menor
+		var orden = datos,sorted{(a, b) -> Bool in a > b}				// 9 Times
+		orden 															// [6,5,4,3,1,0]
+		//Combinación de métodos
+		var porDosFiltroAcumulado = datos2.map{a in a * 2}.filter{a in a > 3}.reduce(0){(a, b) in a + b}	//17 Times
+		porDosFiltroAcumulado 																				//36
+	}
+}
+
+Tema 12
+{
+	Para realziar animaciones es necesario modificar la vista perimero y después agregar el código básico
+	para animar correctamente.
+	
+	12.3 Animación Personalizada
+	{
+		ANIMACION
+		UIView.animateWithDuration(_ duration: NSTimeInterval,
+			delay: NSTimeInterval,
+			options: UIViewAnimationOptions,
+			animations: () -> Void,
+			completion: ((Bool)->Void)?)
+	}	
+}
